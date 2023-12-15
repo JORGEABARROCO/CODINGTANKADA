@@ -1,0 +1,29 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Solution
+{
+    public static String[] substringStr(String[] input)
+    {
+        // Cria uma lista para armazenar as substrings
+        List<String> substrings = new ArrayList<>();
+
+        // Percorre o array de entrada
+        for (int i = 0; i < input.length; i++)
+        {
+            // Percorre o array novamente para comparar cada string com as outras
+            for (int j = 0; j < input.length; j++)
+            {
+                // Verifica se a string atual é uma substring de outra string e se ela ainda não foi adicionada à lista
+                if (i != j && input[j].contains(input[i]) && !substrings.contains(input[i]))
+                {
+                    // Adiciona a substring à lista
+                    substrings.add(input[i]);
+                }
+            }
+        }
+
+        // Converte a lista de substrings em um array e retorna
+        return substrings.toArray(new String[0]);
+    }
+}
