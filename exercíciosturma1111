@@ -1,1 +1,31 @@
+public class Main {
 
+    public static void main(String[] args) {
+        String palavra = "mamãe mamãe mãe";
+        boolean palindromo = checarPalindromo(palavra);
+
+        if (palindromo) {
+            System.out.println("A palavra " + palavra + " é um palindromo.");
+        } else {
+            System.out.println("A palavra " + palavra + " não é um palindromo.");
+        }
+    }
+
+    public static boolean checarPalindromo(String palavra) {
+        palavra = palavra.toLowerCase();
+        palavra = palavra.replaceAll("\\W", ""); // Remove todos os caracteres não alfanuméricos
+
+        int inicio = 0;
+        int fim = palavra.length() - 1;
+
+        while (inicio < fim) {
+            if (palavra.charAt(inicio) != palavra.charAt(fim)) {
+                return false;
+            }
+            inicio++;
+            fim--;
+        }
+
+        return true;
+    }
+}
